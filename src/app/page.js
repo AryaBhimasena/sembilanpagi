@@ -1,365 +1,496 @@
 "use client";
 
-import "@/style/home.css";
+import Link from "next/link";
+import "@/styles/pages/homepage.css";
 
 const services = [
-  "Rekap absensi dan administrasi karyawan",
-  "Payroll dan penggajian operasional",
-  "Pembuatan invoice dan tagihan client",
-  "Laporan pemasukan dan pengeluaran",
-  "Pengelolaan spreadsheet operasional",
-  "Dokumentasi dan laporan administrasi",
+  {
+    number: "01",
+    title: "Administrasi tenaga kerja",
+    description:
+      "Kami membantu mengelola data, absensi, dokumen, dan kebutuhan administrasi tenaga kerja agar lebih tertata.",
+    tag: "People operations",
+  },
+  {
+    number: "02",
+    title: "Payroll & administrasi gaji",
+    description:
+      "Mulai dari rekap absensi sampai perhitungan gaji dan slip gaji, prosesnya dikelola secara terstruktur.",
+    tag: "Payroll support",
+  },
+  {
+    number: "03",
+    title: "Invoice & monitoring",
+    description:
+      "Pembuatan invoice, pengiriman, pencatatan, dan monitoring pembayaran client dilakukan dalam satu alur kerja.",
+    tag: "Finance admin",
+  },
 ];
 
-const process = [
+const benefits = [
+  "Tidak perlu menambah staff internal untuk pekerjaan administratif tertentu.",
+  "Mengurangi beban pengelolaan ruang kerja dan perlengkapan operasional.",
+  "Proses kerja lebih terdokumentasi dan mudah dipantau.",
+  "Pekerjaan tetap berjalan meskipun ada anggota tim yang cuti atau berhalangan.",
+  "Ruang lingkup layanan dapat disesuaikan dengan kebutuhan dan kontrak.",
+];
+
+const workflow = [
   {
     step: "01",
-    title: "Diskusi Kebutuhan",
-    desc: "Kami memahami alur administrasi dan pekerjaan operasional di perusahaan Anda.",
+    title: "Ceritakan kebutuhan",
+    description:
+      "Sampaikan pekerjaan operasional yang ingin dibantu atau dikelola.",
   },
   {
     step: "02",
-    title: "Menyiapkan Sistem Kerja",
-    desc: "Format kerja dan laporan dirapikan agar lebih mudah dijalankan dan dipantau.",
+    title: "Tentukan ruang lingkup",
+    description:
+      "Kami menyusun alur kerja, tanggung jawab, dan kebutuhan layanan.",
   },
   {
     step: "03",
-    title: "Administrasi Dijalankan",
-    desc: "Pekerjaan administrasi dijalankan secara rutin, rapi, dan konsisten setiap hari.",
-  },
-  {
-    step: "04",
-    title: "Laporan & Monitoring",
-    desc: "Anda menerima laporan berkala agar operasional tetap terkontrol dengan baik.",
+    title: "Pekerjaan mulai berjalan",
+    description:
+      "Proses dikelola secara rutin dengan laporan dan komunikasi yang jelas.",
   },
 ];
 
 export default function HomePage() {
   return (
-    <main className="home">
-      {/* NAVBAR */}
+    <main className="sp-site">
+      <nav className="sp-navbar">
+        <div className="sp-container sp-navbar-inner">
+          <Link href="/" className="sp-brand">
+            <span className="sp-brand-mark">9</span>
+            <span className="sp-brand-name">sembilan<span>pagi</span></span>
+          </Link>
 
-      <header className="navbar">
-        <div className="container navbar-content">
-          <div className="brand">
-            SEMBILAN PAGI
-          </div>
-
-          <nav className="desktop-nav">
-            <a href="#tentang">Tentang</a>
+          <div className="sp-nav-links">
             <a href="#layanan">Layanan</a>
-            <a href="#cara-kerja">Cara Kerja</a>
-            <a href="#kontak">Kontak</a>
-          </nav>
+            <a href="#cara-kerja">Cara kerja</a>
+            <a href="#tentang">Tentang</a>
+          </div>
 
-          <button className="primary-btn">
-            Konsultasi
-          </button>
+          <a href="#kontak" className="sp-nav-cta">
+            Mulai ngobrol
+            <span>↗</span>
+          </a>
         </div>
-      </header>
+      </nav>
 
-      {/* HERO */}
-
-      <section
-        className="hero"
-        style={{
-          backgroundImage:
-            "linear-gradient(to bottom, rgba(246,245,242,0.84), rgba(246,245,242,0.96)), url('/images/hero-bg.png')",
-        }}
-      >
-        <div className="container hero-content">
-          <div className="hero-badge">
-            Partner Administrasi Bisnis
-          </div>
-
-          <h1>
-            Administrasi lebih rapi,
-            bisnis lebih fokus berjalan.
-          </h1>
-
-          <p>
-            Sembilan Pagi membantu perusahaan
-            menjalankan pekerjaan administrasi
-            harian tanpa harus repot mengelola
-            admin internal sendiri.
-          </p>
-
-          <div className="hero-actions">
-            <button className="primary-btn">
-              Konsultasi Gratis
-            </button>
-
-            <button className="secondary-btn">
-              Pelajari Layanan
-            </button>
-          </div>
-
-          <div className="hero-points">
-            <div>Laporan lebih rapi</div>
-            <div>Data lebih tertata</div>
-            <div>Operasional lebih stabil</div>
-            <div>Monitoring lebih mudah</div>
-          </div>
-        </div>
-      </section>
-
-		{/* ABOUT */}
-
-		<section
-		  className="section section-border"
-		  id="tentang"
-		>
-		  <div className="container about-grid">
-			<div className="about-content">
-			  <div className="section-label">
-				TENTANG SEMBILAN PAGI
-			  </div>
-
-			  <h2 className="section-title">
-				Bisnis tetap berjalan,
-				administrasi tetap beres.
-			  </h2>
-
-			  <p className="section-description second-paragraph">
-				Banyak perusahaan membutuhkan admin,
-				tetapi tidak ingin repot mengurus
-				rekrutmen, payroll, BPJS, cuti,
-				dan operasional tim admin setiap hari.
-			  </p>
-
-			  <p className="section-description second-paragraph">
-				Sembilan Pagi membantu pekerjaan
-				administrasi tetap rapi, teratur,
-				dan mudah dipantau tanpa menambah
-				beban operasional perusahaan.
-			  </p>
-
-			  <div className="about-benefits">
-				<div className="about-benefit-item">
-				  <span />
-				  Laporan lebih rapi dan tepat waktu
-				</div>
-
-				<div className="about-benefit-item">
-				  <span />
-				  Data lebih terstruktur dan mudah dicari
-				</div>
-
-				<div className="about-benefit-item">
-				  <span />
-				  Tidak perlu mengelola admin internal
-				</div>
-
-				<div className="about-benefit-item">
-				  <span />
-				  Operasional lebih ringan dan efisien
-				</div>
-			  </div>
-			</div>
-
-			<div className="about-image">
-			  <img
-				src="/images/about.png"
-				alt="Administrasi bisnis yang lebih rapi dan teratur"
-			  />
-			</div>
-		  </div>
-		</section>
-
-      {/* SERVICES */}
-
-      <section
-        className="section services-section"
-        id="layanan"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.96)), url('/images/service-bg.png')",
-        }}
-      >
-        <div className="container">
-          <div className="section-label">
-            LAYANAN
-          </div>
-
-          <div className="service-layout">
-            <div>
-              <h2 className="section-title">
-                Pekerjaan administrasi yang
-                membantu bisnis berjalan
-                lebih teratur.
-              </h2>
-
-              <p className="section-description">
-                Seluruh pekerjaan administrasi
-                dijalankan secara rutin agar
-                data, laporan, dan operasional
-                bisnis lebih mudah dipantau.
-              </p>
+      <section className="sp-hero">
+        <div className="sp-container sp-hero-grid">
+          <div className="sp-hero-copy">
+            <div className="sp-eyebrow">
+              <span className="sp-eyebrow-dot" />
+              Operational services partner
             </div>
 
-            <div className="service-list">
-              {services.map((item, index) => (
-                <div
-                  key={index}
-                  className="service-item"
-                >
-                  <span>
-                    0{index + 1}
-                  </span>
+            <h1>
+              Biar kami yang
+              <span>mengurus</span>
+              pekerjaan operasional.
+            </h1>
 
-                  <p>{item}</p>
+            <p className="sp-hero-description">
+              Sembilan Pagi membantu bisnis mengelola pekerjaan administratif
+              yang rutin, detail, dan penting—mulai dari tenaga kerja, payroll,
+              sampai invoice.
+            </p>
+
+            <div className="sp-hero-actions">
+              <a href="#kontak" className="sp-button sp-button-dark">
+                Ceritakan kebutuhan
+                <span>↗</span>
+              </a>
+
+              <a href="#layanan" className="sp-text-link">
+                Lihat layanan
+                <span>↓</span>
+              </a>
+            </div>
+
+            <div className="sp-hero-note">
+              <span className="sp-note-icon">✳</span>
+              <span>
+                Dikelola dengan proses yang rapi, komunikasi yang jelas, dan
+                sistem kerja yang praktis.
+              </span>
+            </div>
+          </div>
+
+          <div className="sp-hero-visual">
+            <div className="sp-floating-label sp-floating-label-top">
+              <span className="sp-label-dot sp-label-dot-green" />
+              Work in progress
+            </div>
+
+            <div className="sp-orbit orbit-one" />
+            <div className="sp-orbit orbit-two" />
+
+            <div className="sp-dashboard-card">
+              <div className="sp-dashboard-top">
+                <div>
+                  <span className="sp-mini-label">OPERATIONS / 09</span>
+                  <h2>Good morning<span>.</span></h2>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* WHY US */}
-
-      <section className="section soft-section">
-        <div className="container">
-          <div className="whyus-card">
-            <div>
-              <div className="section-label">
-                KENAPA SEMBILAN PAGI?
+                <div className="sp-dashboard-avatar">SP</div>
               </div>
 
-              <h2 className="section-title">
-                Bukan sekadar input data.
-              </h2>
+              <div className="sp-dashboard-status">
+                <div className="sp-status-icon">✓</div>
+                <div>
+                  <strong>Semua proses berjalan</strong>
+                  <span>Update terakhir beberapa saat lalu</span>
+                </div>
+              </div>
+
+              <div className="sp-dashboard-stats">
+                <div className="sp-stat-box">
+                  <span>Data tenaga kerja</span>
+                  <strong>128</strong>
+                  <small>terkelola</small>
+                </div>
+
+                <div className="sp-stat-box">
+                  <span>Payroll</span>
+                  <strong>96%</strong>
+                  <small>siap diproses</small>
+                </div>
+              </div>
+
+              <div className="sp-dashboard-list">
+                <div className="sp-list-heading">
+                  <span>Aktivitas hari ini</span>
+                  <span>•••</span>
+                </div>
+
+                <div className="sp-activity-item">
+                  <div className="sp-activity-symbol symbol-blue">↗</div>
+                  <div className="sp-activity-content">
+                    <strong>Rekap absensi diperbarui</strong>
+                    <span>Administrasi tenaga kerja</span>
+                  </div>
+                  <span className="sp-activity-time">09:12</span>
+                </div>
+
+                <div className="sp-activity-item">
+                  <div className="sp-activity-symbol symbol-orange">Rp</div>
+                  <div className="sp-activity-content">
+                    <strong>Payroll sedang diperiksa</strong>
+                    <span>Payroll & administrasi gaji</span>
+                  </div>
+                  <span className="sp-activity-time">09:36</span>
+                </div>
+
+                <div className="sp-activity-item">
+                  <div className="sp-activity-symbol symbol-green">✓</div>
+                  <div className="sp-activity-content">
+                    <strong>Invoice berhasil dicatat</strong>
+                    <span>Invoice & monitoring</span>
+                  </div>
+                  <span className="sp-activity-time">10:04</span>
+                </div>
+              </div>
+
+              <div className="sp-dashboard-bottom">
+                <span>One less thing to worry about.</span>
+                <span className="sp-bottom-arrow">↗</span>
+              </div>
             </div>
 
-            <div className="whyus-content">
+            <div className="sp-floating-card sp-floating-card-left">
+              <span className="sp-floating-icon">✦</span>
+              <div>
+                <strong>Less admin</strong>
+                <span>More focus</span>
+              </div>
+            </div>
+
+            <div className="sp-floating-card sp-floating-card-right">
+              <span className="sp-floating-number">09</span>
+              <div>
+                <strong>Simple process</strong>
+                <span>Clear communication</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="sp-container sp-hero-bottom">
+          <span>Untuk bisnis yang ingin pekerjaan tetap berjalan</span>
+          <div className="sp-hero-bottom-line" />
+          <span>Tanpa harus mengurus semuanya sendiri</span>
+        </div>
+      </section>
+
+      <section className="sp-intro-section">
+        <div className="sp-container">
+          <div className="sp-section-kicker">
+            <span>01</span>
+            <span>Kenapa Sembilan Pagi?</span>
+          </div>
+
+          <div className="sp-intro-layout">
+            <h2>
+              Pekerjaan kecil yang
+              <span>menghabiskan banyak waktu.</span>
+            </h2>
+
+            <div className="sp-intro-content">
               <p>
-                Kami membantu administrasi bisnis
-                berjalan lebih rapi, konsisten,
-                dan mudah dipantau setiap hari.
+                Administrasi tenaga kerja, payroll, dan invoice sering kali
+                terlihat sederhana. Namun ketika dilakukan setiap hari, detail
+                kecilnya bisa menyita banyak waktu dan perhatian.
               </p>
 
               <p>
-                Fokus kami bukan hanya mengerjakan
-                tugas admin, tetapi membantu
-                operasional bisnis berjalan
-                lebih ringan dan teratur.
+                Kami hadir untuk membantu pekerjaan tersebut berjalan lebih
+                teratur, sehingga tim Anda dapat fokus pada pekerjaan yang
+                lebih utama.
               </p>
+
+              <a href="#layanan" className="sp-round-link">
+                <span>Kenali layanan</span>
+                <strong>↘</strong>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
+      <section className="sp-services-section" id="layanan">
+        <div className="sp-container">
+          <div className="sp-section-heading">
+            <div>
+              <div className="sp-section-kicker">
+                <span>02</span>
+                <span>Apa yang kami bantu?</span>
+              </div>
 
-      <section
-        className="section"
-        id="cara-kerja"
-      >
-        <div className="container">
-          <div className="section-label">
-            CARA KERJA
+              <h2>
+                Operasional yang
+                <span>lebih ringan.</span>
+              </h2>
+            </div>
+
+            <p>
+              Layanan dapat disesuaikan dengan kebutuhan, jumlah pekerjaan, dan
+              ruang lingkup kerja sama.
+            </p>
           </div>
 
-          <h2 className="section-title process-title">
-            Proses kerja yang sederhana
-            dan mudah dijalankan.
-          </h2>
-
-          <div className="process-grid">
-            {process.map((item) => (
-              <div
-                key={item.step}
-                className="process-card"
-              >
-                <div className="process-step">
-                  {item.step}
+          <div className="sp-services-grid">
+            {services.map((service) => (
+              <article className="sp-service-card" key={service.number}>
+                <div className="sp-service-card-top">
+                  <span className="sp-service-number">{service.number}</span>
+                  <span className="sp-service-arrow">↗</span>
                 </div>
 
-                <h3>{item.title}</h3>
+                <div className="sp-service-card-body">
+                  <span className="sp-service-tag">{service.tag}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
 
-                <p>{item.desc}</p>
+                <div className="sp-service-card-line" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sp-marquee-section" aria-label="Sembilan Pagi">
+        <div className="sp-marquee">
+          <span>LESS ADMIN</span>
+          <i>✳</i>
+          <span>MORE FOCUS</span>
+          <i>✳</i>
+          <span>LESS ADMIN</span>
+          <i>✳</i>
+          <span>MORE FOCUS</span>
+        </div>
+      </section>
+
+      <section className="sp-benefit-section">
+        <div className="sp-container sp-benefit-layout">
+          <div className="sp-benefit-intro">
+            <div className="sp-section-kicker">
+              <span>03</span>
+              <span>Manfaat untuk bisnis</span>
+            </div>
+
+            <h2>
+              Anda fokus
+              <span>pada bisnis.</span>
+            </h2>
+
+            <p>
+              Kami membantu menjaga pekerjaan administratif tetap berjalan
+              tanpa menambah beban pengelolaan di internal.
+            </p>
+
+            <div className="sp-benefit-sticker">
+              <span>✦</span>
+              <strong>One less thing<br />to worry about.</strong>
+            </div>
+          </div>
+
+          <div className="sp-benefit-list">
+            {benefits.map((benefit, index) => (
+              <div className="sp-benefit-item" key={benefit}>
+                <span className="sp-benefit-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <p>{benefit}</p>
+
+                <span className="sp-benefit-check">↗</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      <section className="sp-workflow-section" id="cara-kerja">
+        <div className="sp-container">
+          <div className="sp-section-heading sp-workflow-heading">
+            <div>
+              <div className="sp-section-kicker">
+                <span>04</span>
+                <span>Cara kerja</span>
+              </div>
 
-      <section className="section">
-        <div className="container">
-          <div
-            className="cta-box"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(19,31,48,0.84), rgba(19,31,48,0.92)), url('/images/cta-bg.png')",
-            }}
-          >
-            <div className="section-label light">
-              SEMBILAN PAGI
+              <h2>
+                Tidak perlu
+                <span>rumit.</span>
+              </h2>
             </div>
 
-            <h2>
-              Administrasi tetap berjalan.
-              <br />
-              Bisnis bisa fokus terus berkembang.
-            </h2>
-
             <p>
-              Kurangi beban administrasi harian
-              dan bangun operasional bisnis yang
-              lebih teratur bersama Sembilan Pagi.
+              Kami mulai dari memahami kebutuhan Anda, lalu menyusun proses
+              kerja yang mudah dijalankan bersama.
             </p>
+          </div>
 
-            <button className="white-btn">
-              Diskusikan Kebutuhan Anda
-            </button>
+          <div className="sp-workflow-grid">
+            {workflow.map((item, index) => (
+              <div className="sp-workflow-item" key={item.step}>
+                <div className="sp-workflow-number">{item.step}</div>
+
+                <div className="sp-workflow-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+
+                {index < workflow.length - 1 && (
+                  <div className="sp-workflow-connector">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="sp-contract-note">
+            <span className="sp-contract-icon">✳</span>
+            <div>
+              <strong>Fleksibel sesuai kebutuhan</strong>
+              <p>
+                Kerja sama dapat menggunakan kontrak bulanan atau paket layanan
+                berdasarkan ruang lingkup pekerjaan.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
+      <section className="sp-about-section" id="tentang">
+        <div className="sp-container sp-about-layout">
+          <div className="sp-about-symbol">
+            <span>9</span>
+          </div>
 
-      <footer
-        className="footer"
-        id="kontak"
-      >
-        <div className="container footer-content">
-          <div>
-            <div className="brand footer-brand">
-              SEMBILAN PAGI
+          <div className="sp-about-content">
+            <div className="sp-section-kicker">
+              <span>05</span>
+              <span>Tentang Sembilan Pagi</span>
             </div>
 
+            <h2>
+              Kami percaya,
+              <span>pekerjaan yang rapi</span>
+              membuat bisnis bergerak lebih tenang.
+            </h2>
+
             <p>
-              Partner administrasi bisnis untuk
-              membantu operasional perusahaan
-              tetap rapi dan teratur.
+              Sembilan Pagi dibangun dari pengalaman mengelola pekerjaan
+              operasional sehari-hari—mulai dari data tenaga kerja, absensi,
+              payroll, sampai invoice.
+            </p>
+
+            <p>
+              Dengan proses yang terstruktur dan dukungan sistem digital, kami
+              membantu bisnis mengelola pekerjaan rutin secara lebih praktis,
+              konsisten, dan mudah dipantau.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="footer-links">
-            <a href="#">
+      <section className="sp-contact-section" id="kontak">
+        <div className="sp-container">
+          <div className="sp-contact-card">
+            <div className="sp-contact-top">
+              <span className="sp-contact-label">LET'S WORK TOGETHER</span>
+              <span className="sp-contact-symbol">✳</span>
+            </div>
+
+            <h2>
+              Ada pekerjaan
+              <span>yang ingin diringankan?</span>
+            </h2>
+
+            <p>
+              Ceritakan kebutuhan operasional Anda. Kami akan membantu
+              memetakan ruang lingkup pekerjaan yang dapat dikelola bersama.
+            </p>
+
+            <a
+              href="mailto:hello@sembilanpagi.com"
+              className="sp-contact-email"
+            >
               hello@sembilanpagi.com
+              <span>↗</span>
             </a>
 
-            <a href="#">
-              WhatsApp
-            </a>
-
-            <a href="#">
-              Instagram
-            </a>
+            <div className="sp-contact-footer">
+              <span>Sembilan Pagi</span>
+              <span>Operational services, made simple.</span>
+            </div>
           </div>
         </div>
+      </section>
+
+      <footer className="sp-footer">
+        <div className="sp-container sp-footer-inner">
+          <div className="sp-footer-brand">
+            <span className="sp-brand-mark">9</span>
+            <span className="sp-brand-name">
+              sembilan<span>pagi</span>
+            </span>
+          </div>
+
+          <p>
+            © {new Date().getFullYear()} Sembilan Pagi. All rights reserved.
+          </p>
+
+          <a href="mailto:hello@sembilanpagi.com">
+            hello@sembilanpagi.com
+          </a>
+        </div>
       </footer>
-
-      {/* MOBILE NAV */}
-
-      <div className="mobile-nav">
-        <a href="#tentang">Tentang</a>
-        <a href="#layanan">Layanan</a>
-        <a href="#cara-kerja">Cara Kerja</a>
-        <a href="#kontak">Kontak</a>
-      </div>
     </main>
   );
 }
