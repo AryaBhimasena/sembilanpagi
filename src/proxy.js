@@ -9,37 +9,19 @@ export function proxy(request) {
 
   const { pathname } = request.nextUrl;
 
-  if (hostname !== 'iyaz.sembilanpagi.com') {
-    return NextResponse.next();
+  // Subdomain personal Iyaz
+  if (hostname === 'iyaz.sembilanpagi.com') {
+    // Tampilkan halaman Iyaz saat membuka homepage subdomain
+    if (pathname === '/') {
+      return NextResponse.rewrite(
+        new URL('/iyaz', request.url)
+      );
+    }
   }
 
-  // Jangan rewrite aset statis atau endpoint internal.
-  if (
-    pathname.startsWith('/_next/') ||
-    pathname.startsWith('/api/') ||
-    pathname === '/favicon.ico' ||
-    pathname === '/robots.txt' ||
-    pathname === '/sitemap.xml' ||
-    /\.[^/]+$/.test(pathname)
-  ) {
-    return NextResponse.next();
-  }
-
-  // Jangan menambahkan prefix /iyaz dua kali.
-  if (pathname === '/iyaz' || pathname.startsWith('/iyaz/')) {
-    return NextResponse.next();
-  }
-
-  const url = request.nextUrl.clone();
-  url.pathname = pathname === '/'
-    ? '/iyaz'
-    : `/iyaz${pathname}`;
-
-  return NextResponse.rewrite(url);
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image).*)',
-  ],
+  matcher: '/',
 };
