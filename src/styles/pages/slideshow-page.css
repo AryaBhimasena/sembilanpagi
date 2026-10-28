@@ -399,29 +399,30 @@
 }
 
 
-/* ==================================================
-   FULLSCREEN PRESENTATION
-   ================================================== */
 
+/* Navigasi klik pada area slide */
+.slideshow-stage {
+    cursor: default;
+}
+
+/* Petunjuk navigasi saat presentasi fullscreen */
 .slideshow-stage:fullscreen {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    max-width: none;
-    max-height: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    border-radius: 0;
-    background: #f5f1e8;
     cursor: pointer;
 }
 
+/* Pastikan konten tetap memenuhi area fullscreen */
 .slideshow-stage:fullscreen .slideshow-content {
     width: 100%;
     height: 100%;
-    min-height: 0;
-    pointer-events: none;
+}
+
+/* Hilangkan margin bawaan browser pada mode fullscreen */
+.slideshow-stage:fullscreen {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    margin: 0;
+    background: #f5f1e8;
 }
