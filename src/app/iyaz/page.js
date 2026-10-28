@@ -1,20 +1,21 @@
+
 import Image from "next/image";
 import "@/styles/pages/profil-iyaz.css";
 
 const socialLinks = [
   {
-    name: "Instagram",
-    href: "https://www.instagram.com/USERNAME",
-    icon: "instagram",
-  },
-  {
     name: "Facebook",
-    href: "https://www.facebook.com/USERNAME",
+    href: "https://www.facebook.com/mumaiyaz",
     icon: "facebook",
   },
   {
+    name: "Instagram",
+    href: "https://www.instagram.com/iiyyaazz",
+    icon: "instagram",
+  },
+  {
     name: "Lynk.id",
-    href: "https://lynk.id/USERNAME",
+    href: "https://lynk.id/kelasexceldasar",
     icon: "lynk",
   },
 ];
@@ -74,6 +75,86 @@ const services = [
       "Website company profile, halaman promosi, dan landing page dengan tampilan profesional.",
     icon: "website",
   },
+];
+
+const websiteOffers = [
+  {
+    number: "01",
+    type: "PERSONAL PROFILE",
+    title: "Personal Profile",
+    subtitle: "Tampilkan diri secara profesional.",
+    description:
+      "Website personal untuk memperkenalkan diri, menampilkan keahlian, portofolio, dan memudahkan orang menghubungi Anda.",
+    price: "299.000",
+    visual: "personal",
+    template: "Clean & Personal",
+    templateDescription:
+      "Tampilan minimalis dengan profil utama, bio singkat, portofolio, dan tautan kontak.",
+    features: [
+      "Profil dan deskripsi diri",
+      "Portofolio atau pengalaman",
+      "Tautan media sosial",
+      "Tombol kontak WhatsApp",
+      "Tampilan responsif",
+    ],
+    whatsappMessage:
+      "Halo Iyaz, saya tertarik dengan penawaran Website Personal Profile seharga Rp299.000. Bisa dijelaskan detail template dan proses pembuatannya?",
+    featured: true,
+  },
+  {
+    number: "02",
+    type: "BUSINESS PROFILE",
+    title: "Business Profile",
+    subtitle: "Buat bisnis lebih mudah ditemukan.",
+    description:
+      "Landing page untuk memperkenalkan usaha, menampilkan produk atau layanan, dan mengarahkan calon pelanggan untuk menghubungi Anda.",
+    price: "499.000",
+    visual: "business",
+    template: "Modern & Conversion",
+    templateDescription:
+      "Tampilan bisnis dengan headline promosi, daftar layanan, keunggulan, dan CTA yang jelas.",
+    features: [
+      "Profil dan informasi bisnis",
+      "Highlight produk atau layanan",
+      "Keunggulan usaha",
+      "CTA WhatsApp untuk pelanggan",
+      "Tampilan responsif",
+    ],
+    whatsappMessage:
+      "Halo Iyaz, saya tertarik dengan penawaran Website Business Profile seharga Rp499.000. Bisa dijelaskan detail template dan proses pembuatannya?",
+    featured: false,
+  },
+  {
+    number: "03",
+    type: "COMPANY PROFILE",
+    title: "Company Profile",
+    subtitle: "Bangun citra perusahaan yang meyakinkan.",
+    description:
+      "Website profil perusahaan untuk menyampaikan identitas, layanan, informasi perusahaan, serta membangun kepercayaan calon klien.",
+    price: "799.000",
+    visual: "company",
+    template: "Corporate & Professional",
+    templateDescription:
+      "Tampilan korporat dengan bagian tentang perusahaan, layanan, keunggulan, dan informasi kontak.",
+    features: [
+      "Profil dan gambaran perusahaan",
+      "Visi, misi, atau nilai perusahaan",
+      "Informasi layanan",
+      "Informasi kontak perusahaan",
+      "Tampilan responsif",
+    ],
+    whatsappMessage:
+      "Halo Iyaz, saya tertarik dengan penawaran Website Company Profile seharga Rp799.000. Bisa dijelaskan detail template dan proses pembuatannya?",
+    featured: false,
+  },
+];
+
+// Urutan visual: Business — Personal — Company.
+// Personal Profile berada di tengah dan aktif secara default.
+const orderedWebsiteOffers = [
+  websiteOffers[1],
+  websiteOffers[0],
+  websiteOffers[2],
 ];
 
 function ArrowIcon({ diagonal = false, className = "" }) {
@@ -174,7 +255,13 @@ function SocialIcon({ type }) {
 function ServiceIcon({ type }) {
   if (type === "spreadsheet") {
     return (
-      <svg viewBox="0 0 24 24" width="25" height="25" fill="none" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        width="25"
+        height="25"
+        fill="none"
+        aria-hidden="true"
+      >
         <rect
           x="3.5"
           y="3.5"
@@ -195,7 +282,13 @@ function ServiceIcon({ type }) {
 
   if (type === "application") {
     return (
-      <svg viewBox="0 0 24 24" width="25" height="25" fill="none" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        width="25"
+        height="25"
+        fill="none"
+        aria-hidden="true"
+      >
         <rect
           x="3"
           y="4"
@@ -216,7 +309,13 @@ function ServiceIcon({ type }) {
   }
 
   return (
-    <svg viewBox="0 0 24 24" width="25" height="25" fill="none" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      width="25"
+      height="25"
+      fill="none"
+      aria-hidden="true"
+    >
       <rect
         x="3"
         y="4"
@@ -236,6 +335,140 @@ function ServiceIcon({ type }) {
   );
 }
 
+function WebsiteTemplatePreview({ visual }) {
+  return (
+    <div className={`iyaz-offer-preview iyaz-offer-preview-${visual}`}>
+      <div className="iyaz-template-browser">
+        <div className="iyaz-template-browser-dots">
+          <i />
+          <i />
+          <i />
+        </div>
+        <span>website-preview</span>
+        <span className="iyaz-template-browser-menu">•••</span>
+      </div>
+
+      {visual === "personal" && (
+        <div className="iyaz-template-canvas iyaz-template-personal">
+          <div className="iyaz-template-personal-nav">
+            <span>
+              your.name<span>.</span>
+            </span>
+            <i />
+          </div>
+          <div className="iyaz-template-personal-hero">
+            <div className="iyaz-template-avatar">Y</div>
+            <span className="iyaz-template-eyebrow">HELLO, I'M</span>
+            <strong>Your Name.</strong>
+            <div className="iyaz-template-lines">
+              <i />
+              <i />
+            </div>
+            <div className="iyaz-template-mini-button">
+              Let's connect ↗
+            </div>
+          </div>
+          <div className="iyaz-template-personal-bottom">
+            <span>ABOUT</span>
+            <span>PORTFOLIO</span>
+            <span>CONTACT</span>
+          </div>
+        </div>
+      )}
+
+      {visual === "business" && (
+        <div className="iyaz-template-canvas iyaz-template-business">
+          <div className="iyaz-template-business-nav">
+            <span>
+              BRAND<span>.</span>
+            </span>
+            <div>
+              <i />
+              <i />
+              <i />
+            </div>
+          </div>
+          <div className="iyaz-template-business-hero">
+            <span className="iyaz-template-eyebrow">
+              YOUR BUSINESS PARTNER
+            </span>
+            <strong>
+              Grow your
+              <br />
+              business.
+            </strong>
+            <div className="iyaz-template-lines">
+              <i />
+              <i />
+            </div>
+            <div className="iyaz-template-mini-button">
+              Explore our service ↗
+            </div>
+          </div>
+          <div className="iyaz-template-business-bottom">
+            <div>
+              <i />
+              <span />
+            </div>
+            <div>
+              <i />
+              <span />
+            </div>
+            <div>
+              <i />
+              <span />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {visual === "company" && (
+        <div className="iyaz-template-canvas iyaz-template-company">
+          <div className="iyaz-template-company-nav">
+            <span>
+              <i /> COMPANY
+            </span>
+            <div>
+              <i />
+              <i />
+              <i />
+            </div>
+          </div>
+          <div className="iyaz-template-company-hero">
+            <div className="iyaz-template-company-copy">
+              <span className="iyaz-template-eyebrow">WHO WE ARE</span>
+              <strong>
+                Building
+                <br />
+                trust through
+                <br />
+                quality.
+              </strong>
+              <div className="iyaz-template-lines">
+                <i />
+                <i />
+              </div>
+              <div className="iyaz-template-mini-button">
+                Discover more ↗
+              </div>
+            </div>
+            <div className="iyaz-template-company-art">
+              <i />
+              <i />
+              <i />
+            </div>
+          </div>
+          <div className="iyaz-template-company-bottom">
+            <span>ABOUT US</span>
+            <span>OUR SERVICES</span>
+            <span>CONTACT</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function IyazPage() {
   return (
     <main className="iyaz-site" id="top">
@@ -249,6 +482,7 @@ export default function IyazPage() {
           <a href="#about">Tentang</a>
           <a href="#work">Portofolio</a>
           <a href="#services">Layanan</a>
+          <a href="#website-offers">Penawaran Website</a>
         </nav>
 
         <a className="iyaz-header-contact" href="#contact">
@@ -415,7 +649,9 @@ export default function IyazPage() {
                       <span className="iyaz-preview-menu">•••</span>
                     </div>
 
-                    <div className="iyaz-preview-label">CASH & BANK OVERVIEW</div>
+                    <div className="iyaz-preview-label">
+                      CASH & BANK OVERVIEW
+                    </div>
 
                     <div className="iyaz-preview-balance">
                       <span>Total saldo</span>
@@ -451,7 +687,9 @@ export default function IyazPage() {
                     <div className="iyaz-sheet-grid">
                       {Array.from({ length: 24 }, (_, index) => (
                         <span
-                          className={index % 7 === 0 ? "iyaz-cell-highlight" : ""}
+                          className={
+                            index % 7 === 0 ? "iyaz-cell-highlight" : ""
+                          }
                           key={index}
                         />
                       ))}
@@ -491,7 +729,7 @@ export default function IyazPage() {
               <div className="iyaz-project-content">
                 <div className="iyaz-project-meta">
                   <span>{project.category}</span>
-                  <span>0{project.number}</span>
+                  <span>{project.number}</span>
                 </div>
 
                 <h3>{project.name}</h3>
@@ -527,9 +765,7 @@ export default function IyazPage() {
         </div>
 
         <div className="iyaz-services-heading">
-          <h2>
-            Punya pekerjaan yang bisa dibuat lebih sederhana?
-          </h2>
+          <h2>Punya pekerjaan yang bisa dibuat lebih sederhana?</h2>
 
           <p>
             Saya terbuka untuk membantu kebutuhan digital dan operasional yang
@@ -551,15 +787,140 @@ export default function IyazPage() {
               </div>
 
               <a
-                href="#contact"
+                href="#website-offers"
                 className="iyaz-service-arrow"
-                aria-label={`Diskusikan layanan ${service.title}`}
-                title={`Diskusikan ${service.title}`}
+                aria-label={`Lihat penawaran untuk ${service.title}`}
+                title={`Lihat penawaran ${service.title}`}
               >
                 <ArrowIcon diagonal />
               </a>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Website Landing Page Offers */}
+      <section
+        className="iyaz-offers iyaz-offers-contrast section-shell"
+        id="website-offers"
+      >
+        <div className="iyaz-section-kicker">
+          <span>04 / SPECIAL WEBSITE OFFERS</span>
+          <span className="iyaz-kicker-line" />
+        </div>
+
+        <div className="iyaz-offers-heading">
+          <div className="iyaz-offers-heading-copy">
+            <span className="iyaz-offers-eyebrow">
+              YOUR ONLINE PRESENCE STARTS HERE
+            </span>
+            <h2>
+              Website profesional,
+              <span> tanpa mulai dari nol.</span>
+            </h2>
+          </div>
+
+          <p>
+            Pilih template yang paling sesuai dengan kebutuhan Anda.
+            Setiap penawaran dirancang untuk membantu Anda tampil lebih
+            profesional dan mudah dihubungi secara online.
+          </p>
+        </div>
+
+        <div className="iyaz-offer-grid">
+          {orderedWebsiteOffers.map((offer) => (
+            <article
+              className={`iyaz-offer-card${
+                offer.featured
+                  ? " iyaz-offer-card-featured iyaz-offer-card-default-active"
+                  : ""
+              }`}
+              key={offer.number}
+            >
+              {offer.featured && (
+                <div className="iyaz-offer-ribbon">
+                  <span>✳</span> RECOMMENDED
+                </div>
+              )}
+
+              <div className="iyaz-offer-card-top">
+                <span className="iyaz-offer-number">{offer.number}</span>
+                <span className="iyaz-offer-type">{offer.type}</span>
+              </div>
+
+              <WebsiteTemplatePreview visual={offer.visual} />
+
+              <div className="iyaz-offer-content">
+                <span className="iyaz-offer-template-label">
+                  TEMPLATE DESIGN
+                </span>
+
+                <h3>{offer.title}</h3>
+                <p className="iyaz-offer-subtitle">{offer.subtitle}</p>
+                <p className="iyaz-offer-description">
+                  {offer.description}
+                </p>
+
+                <div className="iyaz-offer-template-info">
+                  <span className="iyaz-offer-template-icon">✳</span>
+                  <div>
+                    <strong>{offer.template}</strong>
+                    <p>{offer.templateDescription}</p>
+                  </div>
+                </div>
+
+                <div className="iyaz-offer-features">
+                  <span className="iyaz-offer-features-title">
+                    YANG TERMASUK
+                  </span>
+
+                  <ul>
+                    {offer.features.map((feature) => (
+                      <li key={feature}>
+                        <span aria-hidden="true">✓</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="iyaz-offer-price">
+                  <span>HARGA PENAWARAN</span>
+                  <div>
+                    <span className="iyaz-offer-currency">Rp</span>
+                    <strong>{offer.price}</strong>
+                  </div>
+                  <p>Harga awal · Detail disepakati sebelum pengerjaan</p>
+                </div>
+
+                <a
+                  className={`iyaz-offer-cta${
+                    offer.featured ? " iyaz-offer-cta-featured" : ""
+                  }`}
+                  href={`https://wa.me/6285745407653?text=${encodeURIComponent(
+                    offer.whatsappMessage
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Pilih penawaran ini <ArrowIcon diagonal />
+                </a>
+
+                <span className="iyaz-offer-contact-note">
+                  Diskusikan kebutuhan Anda melalui WhatsApp
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="iyaz-offers-footnote">
+          <span className="iyaz-offers-footnote-mark">i</span>
+          <p>
+            Setiap website menggunakan template sebagai dasar desain.
+            Ruang lingkup, materi, domain, hosting, dan kebutuhan tambahan
+            akan dikonfirmasi terlebih dahulu sebelum pengerjaan.
+          </p>
         </div>
       </section>
 
@@ -592,16 +953,14 @@ export default function IyazPage() {
             <div className="iyaz-footer-action">
               <a
                 className="iyaz-footer-cta"
-                href="https://lynk.id/USERNAME"
+                href="https://wa.me/6285745407653"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Hubungi saya <ArrowIcon diagonal />
               </a>
 
-              <span>
-                Excel · Web Application · Website
-              </span>
+              <span>Excel · Web Application · Website</span>
             </div>
           </div>
 
