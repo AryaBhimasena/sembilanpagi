@@ -35,48 +35,13 @@ export default function Slide1() {
                 {/* Event identity */}
                 <header className="slide1__event">
                     <div className="slide1__identity">
-                        <div
-                            className="slide1__logo"
-                            aria-label="Placeholder logo Talent and Innovation Hub"
-                        >
-                            <svg
-                                viewBox="0 0 100 100"
-                                className="slide1__logo-mark"
-                                fill="none"
-                                aria-hidden="true"
-                            >
-                                <circle
-                                    cx="50"
-                                    cy="18"
-                                    r="9"
-                                    fill="currentColor"
-                                />
-
-                                <path
-                                    d="M44 33C24 34 13 49 16 69C32 67 43 53 44 33Z"
-                                    fill="#D9A72E"
-                                />
-
-                                <path
-                                    d="M56 33C76 34 87 49 84 69C68 67 57 53 56 33Z"
-                                    fill="#294A70"
-                                />
-
-                                <path
-                                    d="M50 38V85"
-                                    stroke="currentColor"
-                                    strokeWidth="4"
-                                    strokeLinecap="round"
-                                />
-
-                                <path
-                                    d="M50 59L33 48M50 68L68 52"
-                                    stroke="currentColor"
-                                    strokeWidth="3"
-                                    strokeLinecap="round"
-                                />
-                            </svg>
-                        </div>
+						{/* Logo Kemnaker */}
+						<div className="slide1__institution-logo">
+							<img
+								src="/images/logo-kemnaker.png"
+								alt="Logo Kementerian Ketenagakerjaan Republik Indonesia"
+							/>
+						</div>
 
                         <div className="slide1__identity-caption">
                             <span>IDENTITY</span>

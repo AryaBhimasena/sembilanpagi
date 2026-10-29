@@ -781,3 +781,342 @@
         font-size: 8px;
     }
 }
+
+/* ==================================================
+   VOICE OVER AUDIO PLAYER
+   Terintegrasi dengan slide7__script
+   ================================================== */
+
+.slide7__audio-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
+    margin-top: 10px;
+}
+
+/* Audio player */
+
+.slide7__audio-player {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    min-width: 0;
+    padding: 7px 9px;
+    border: 1px solid rgba(23, 55, 67, 0.12);
+    border-radius: 7px;
+    background: rgba(255, 253, 248, 0.72);
+    color: var(--s7-ink);
+    transition:
+        border-color 160ms ease,
+        background-color 160ms ease;
+}
+
+.slide7__audio-player:hover {
+    border-color: rgba(179, 138, 73, 0.55);
+    background: var(--s7-white);
+}
+
+.slide7__audio-player audio {
+    display: none;
+}
+
+/* Play / pause */
+
+.slide7__audio-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 29px;
+    width: 29px;
+    height: 29px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--s7-ink);
+    color: var(--s7-white);
+    cursor: pointer;
+    transition:
+        background-color 160ms ease,
+        transform 160ms ease;
+}
+
+.slide7__audio-play:hover {
+    background: var(--s7-gold);
+    transform: scale(1.04);
+}
+
+.slide7__audio-play svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Audio information */
+
+.slide7__audio-details {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.slide7__audio-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+}
+
+.slide7__audio-heading > div {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.slide7__audio-heading h3 {
+    margin: 0;
+    color: var(--s7-ink);
+    font-size: clamp(9px, 0.72vw, 11px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.slide7__audio-heading p {
+    margin: 2px 0 0;
+    color: var(--s7-muted);
+    font-size: clamp(7px, 0.58vw, 9px);
+    line-height: 1.3;
+}
+
+/* Restart */
+
+.slide7__audio-restart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 23px;
+    width: 23px;
+    height: 23px;
+    padding: 0;
+    border: 1px solid var(--s7-line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--s7-muted);
+    cursor: pointer;
+    transition:
+        color 160ms ease,
+        border-color 160ms ease,
+        background-color 160ms ease;
+}
+
+.slide7__audio-restart:hover {
+    border-color: var(--s7-gold);
+    background: rgba(179, 138, 73, 0.1);
+    color: var(--s7-gold);
+}
+
+.slide7__audio-restart svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* Progress */
+
+.slide7__audio-progress {
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin: 6px 0 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: linear-gradient(
+        to right,
+        var(--s7-gold) 0%,
+        var(--s7-gold) var(--audio-progress, 0%),
+        rgba(23, 55, 67, 0.13) var(--audio-progress, 0%),
+        rgba(23, 55, 67, 0.13) 100%
+    );
+    cursor: pointer;
+}
+
+.slide7__audio-progress::-webkit-slider-thumb {
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--s7-white);
+    border-radius: 50%;
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--s7-gold);
+    box-shadow: 0 0 0 1px var(--s7-gold);
+}
+
+.slide7__audio-progress::-moz-range-thumb {
+    width: 7px;
+    height: 7px;
+    border: 2px solid var(--s7-white);
+    border-radius: 50%;
+    background: var(--s7-gold);
+    box-shadow: 0 0 0 1px var(--s7-gold);
+}
+
+.slide7__audio-progress:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+/* Time indicators */
+
+.slide7__audio-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--s7-muted);
+    font-size: 8px;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Audio error */
+
+.slide7__audio-error {
+    margin: 5px 0 0;
+    color: #a33c30;
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+/* Hint below both players */
+
+.slide7__audio-hint {
+    margin: 7px 0 0;
+    color: var(--s7-muted);
+    font-size: clamp(7px, 0.58vw, 9px);
+    line-height: 1.4;
+}
+
+/* Keyboard accessibility */
+
+.slide7__audio-play:focus-visible,
+.slide7__audio-restart:focus-visible,
+.slide7__audio-progress:focus-visible {
+    outline: 2px solid var(--s7-gold);
+    outline-offset: 2px;
+}
+
+/* ==================================================
+   RESPONSIVE AUDIO PLAYER
+   ================================================== */
+
+@media (max-width: 760px) {
+    .slide7__audio-list {
+        gap: 5px;
+        margin-top: 8px;
+    }
+
+    .slide7__audio-player {
+        gap: 7px;
+        padding: 6px 7px;
+    }
+
+    .slide7__audio-play {
+        flex-basis: 26px;
+        width: 26px;
+        height: 26px;
+    }
+
+    .slide7__audio-play svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .slide7__audio-heading h3 {
+        font-size: 9px;
+    }
+
+    .slide7__audio-heading p {
+        font-size: 8px;
+    }
+
+    .slide7__audio-restart {
+        flex-basis: 21px;
+        width: 21px;
+        height: 21px;
+    }
+
+    .slide7__audio-restart svg {
+        width: 11px;
+        height: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .slide7__audio-list {
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .slide7__audio-player {
+        gap: 10px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .slide7__audio-play {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .slide7__audio-play svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .slide7__audio-heading h3 {
+        font-size: 11px;
+    }
+
+    .slide7__audio-heading p {
+        font-size: 9px;
+    }
+
+    .slide7__audio-restart {
+        flex-basis: 27px;
+        width: 27px;
+        height: 27px;
+    }
+
+    .slide7__audio-restart svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .slide7__audio-progress {
+        margin: 8px 0 5px;
+    }
+
+    .slide7__audio-time {
+        font-size: 9px;
+    }
+
+    .slide7__audio-error {
+        font-size: 10px;
+    }
+
+    .slide7__audio-hint {
+        margin-top: 9px;
+        font-size: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide7__audio-player,
+    .slide7__audio-play,
+    .slide7__audio-restart {
+        transition: none;
+    }
+}

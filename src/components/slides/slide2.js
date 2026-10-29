@@ -1,9 +1,7 @@
-
 import React from "react"
 import {
     ArrowUpRight,
     MessageCircle,
-    UserRound,
 } from "lucide-react"
 
 import "@/styles/slides/slide-2.css"
@@ -58,18 +56,15 @@ export default function Slide2() {
                 {/* Profile card */}
                 <section className="slide2__profile">
                     <div className="slide2__profile-visual">
-                        <div
-                            className="slide2__avatar"
-                            aria-hidden="true"
-                        >
-                            <UserRound
-                                size={54}
-                                strokeWidth={1.1}
+                        <div className="slide2__avatar">
+                            <img
+                                src="/images/iyaz-profile1.jpg"
+                                alt="Foto Siradzamunir Rahman"
                             />
                         </div>
 
                         <span className="slide2__profile-index">
-                            PRESENTER / 01
+                            PRESENTER
                         </span>
                     </div>
 
@@ -129,12 +124,14 @@ export default function Slide2() {
                             rel="noopener noreferrer"
                             aria-label="Kunjungi Facebook Mumaiyaz"
                         >
-<span
-    className="slide2__contact-icon slide2__contact-icon--facebook"
-    aria-hidden="true"
->
-    <span className="slide2__facebook-letter">f</span>
-</span>
+                            <span
+                                className="slide2__contact-icon slide2__contact-icon--facebook"
+                                aria-hidden="true"
+                            >
+                                <span className="slide2__facebook-letter">
+                                    f
+                                </span>
+                            </span>
 
                             <span className="slide2__contact-copy">
                                 <span className="slide2__contact-platform">
@@ -150,6 +147,7 @@ export default function Slide2() {
                                 className="slide2__contact-arrow"
                                 size={17}
                                 strokeWidth={1.7}
+                                aria-hidden="true"
                             />
                         </a>
 
@@ -160,7 +158,10 @@ export default function Slide2() {
                             rel="noopener noreferrer"
                             aria-label="Hubungi presenter melalui WhatsApp"
                         >
-                            <span className="slide2__contact-icon">
+                            <span
+                                className="slide2__contact-icon"
+                                aria-hidden="true"
+                            >
                                 <MessageCircle
                                     size={19}
                                     strokeWidth={1.7}
@@ -181,6 +182,7 @@ export default function Slide2() {
                                 className="slide2__contact-arrow"
                                 size={17}
                                 strokeWidth={1.7}
+                                aria-hidden="true"
                             />
                         </a>
                     </div>
